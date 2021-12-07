@@ -1,8 +1,8 @@
-var variable =("J’aime les tartines et j’en mange");
+let variable =("J’aime les tartines et j’en mange");
 console.log(variable);
 
-var other =("4 par jours");
-console.log(variable + other);
+let nbrParJour =("4 par jours");
+console.log(variable + nbrParJour);
 
 let troiseme = 5;
 let quatrieme = 35;
@@ -16,13 +16,12 @@ let second =("au revoir");
 first = second
 console.log(first);
 
-let number1 = 4;
-let number2 =("6");
+let number = 4;
+let string ="6";
 
-number1 > number2
-number1 < number2
-number1 == number2
-number1 != number2
-number1 === number2
-number1 !== number2
-console.log(number1)
+console.log(number > string)
+console.log(number < string)
+console.log(number == string) // il vérifie la valeur
+console.log(number != string)
+console.log(number === string) //strictement égal (il vérifie le type)
+console.log(number !== string)

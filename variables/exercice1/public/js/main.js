@@ -1,5 +1,5 @@
-var salutation ="coucou";
+let salutation ="coucou";
 console.log(salutation);
 
-var init ="initialisation";
-alert(init);
+let alert1 = initialisation
+alert(alert1);
