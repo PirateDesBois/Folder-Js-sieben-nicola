@@ -5,42 +5,34 @@ console.log(tabExo);
 //exo2
 console.log(tabExo.length);
 //exo3
-tabExo.splice(4,1);
+tabExo.pop();
 console.log(tabExo);
 //Exo4
-tabExo.splice(0,1);
+tabExo.shift();
 console.log(tabExo);
 //Exo5
-tabExo.push("nico");
-tabExo.push("Alix");
+tabExo.push("nico","Alix");
 console.log(tabExo);
 //Exo6
-tabExo.push("a","b",10);
+tabExo.unshift("a","b",10);
 console.log(tabExo);
 //Exo7
 tabExo.reverse();
 console.log(tabExo);
 //Exo8
-let boite=["obj1"];
-
-boite=["obj1","obj2"];
-
-//alert(boite);
-
-boite.unshift("objA");
-
-console.log(boite);
-
-boite.push("objX","objY","objZ");
-//alert(boite);
-
+let boite=["objet1"];
+boite.push("objet2");
+alert(boite);
+boite.unshift("objet3");
+alert(boite);
+boite.push("objet4","objet5","objet6");
+alert(boite);
 boite.splice(0,3);
-boite.push("dada")
+boite.push("objet7")
 alert(boite.length);
-
-boite.splice(4,2);
+boite.splice(2,2);
 boite.splice(0,2);
-alert(tabExo);
+alert(boite);
 
 
 
