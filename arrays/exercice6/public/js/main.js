@@ -45,9 +45,11 @@
         console.log(tableau);
         console.log(tableau.length);
         // - Touvez l'index de chaque éléments
-        console.log(tableau.indexOf("A"));
+        tableau.forEach(element => {
+            console.log(tableau.indexOf(element))
+        });
         // - Utiliser une methode qui permet de supprimer un element grâce à l'index
-        delete tableau[4];
+        classe.splice(6, 1)
         console.log(tableau);
         // - Créez un tableau vide et rajoutez toutes les personnes de la classe. Faite un console.log de quelqu'un aléatoirement dans le tableau
         let classe=[];
