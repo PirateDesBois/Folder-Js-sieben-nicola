@@ -49,7 +49,7 @@ if (prenom.length < 5) {
         }
     }
     // 7. Créer un programme qui permet a l'utilisateur de mettre des chiffres dans des bacs, si le chiffre est plus grand ou égal à 12 il va dans le bac "grandNombres" si il est plus petit que 12 il va dans le bac "petitNombres" affiche ensuite une seule alerte avec le contenu des deux bacs.
-
+    
     let grandNombres =[];
     let petitNombres =[];
     let x = prompt("insérer un nombre");
@@ -65,10 +65,24 @@ if (prenom.length < 5) {
 
     // 8. Invente un exercice avec ce que tu as appris en Javascript jusqu'a maintenant en incluent des conditions
     // traduit ce mot en Anglais: lapin
-    
-    let x = prompt("traduire lapin en anglais");
-    if (x == "rabbit") {
+    let x = prompt("que signifie HTML (répond en Camelcase)");
+    if (x == "hyperText Markup Language") {
         alert("c'est bien ça!");
     }else {
         alert("mauvaise réponse!")
+    }
+
+    let question = prompt("Trois nains vont a la mine, l'un prend une pioche, le deuxième prend une pelle, que prend le troisième?");
+    if (question = "te prend la tête"){
+        alert("c'est une bonne réponse");
+    }else if (question != "te prend la tête"){
+        prompt("Trois nains vont a la mine, l'un prend une pioche, le deuxième prend une pelle, que prend le troisième?");
+    }if (question = "te prend la tête"){
+        alert("c'est une bonne réponse");
+    }else if (question != "te prend la tête"){
+        prompt("Trois nains vont a la mine, l'un prend une pioche, le deuxième prend une pelle, que prend le troisième?");
+    }if (question = "te prend la tête"){
+        alert("c'est une bonne réponse");
+    }else if (question != "te prend la tête"){
+        prompt("Trois nains vont a la mine, l'un prend une pioche, le deuxième prend une pelle, que prend le troisième?");
     }
