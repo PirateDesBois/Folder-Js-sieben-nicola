@@ -1,9 +1,15 @@
-console.log("salut tout le monde!");
-alert("salut tout le monde");
+let question=prompt(prenom);
 
-let nameOfPerson = "nicola";
-console.log(nameOfPerson);
+switch (question) {
+    case "nicola":
+    console.log("bonjour Nicola");  
+        break;
 
-let tableau = ["bonjour", 25, true, "hello", "salut",false, 567655];
+    case "Elias":
+        console.log("bonjour Elias");   
+        break;
 
-console.log(tableau[0]);
+    default:
+        console.log("bonjour inconnu");
+        break;
+}
