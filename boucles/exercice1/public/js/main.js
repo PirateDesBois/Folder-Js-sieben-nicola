@@ -259,7 +259,7 @@
 //     console.log(`${nom[index]} a eu ${note[index]}/20 en Math`)
 // }
 
-
+////////////////////////////////////////////////////////////////////////////////////
 
 // 1. Exo 1 Boucles WHILE
 //     - Créez une variable classe avec un array
@@ -304,30 +304,45 @@
 //     - Vider le tableau panierLegumes pour mettre son contenu dans un second tableau du nom de 'caisseLegumes'
 
 // let panier =["carottes","patates","courgette","aubergine"];
-// let longueur = panier.length
+// let longueur = panier.length;
 // let Caisse=[];
 // let i=0;
-// while (longueur>0) {
+// while (panier.length>0) {
 //     Caisse.push(panier[i]);
 //     panier.splice(0,1);  
 // }
-// console.log(Caisse);
+
 // console.log(panier);
+// console.log(Caisse);
 
 // 5. Exo 05
 //     - Préparez une énigme, et faites une boucle WHILE qui va vérifier si l'utilisateur répond correctement à l'énigme via un prompt, tant qu'il se trompe, vous lui reposer la question. S'il a juste, faites une alerte qui le félicite
 // let enigma = prompt("Pour me manger on doit m'enlever l'extérieur, cuire mon intérieur, manger mon extérieur et jeter mon intérieur. Qui suis-je ?")
-// while (enigma!=="maïs") {
+// let enigma;
+// while (enigma!=="pain") {
 //       enigma= prompt("Plus je suis chaud, plus je suis frais. Qui suis-je ?");
 // }
 // if (enigma==="pain") {
-    
+
 // }
 // alert("félicitation, tu as répondu à l'énigme correctement, tu es très fort");
 
 
 // 6. Exo 06
 //     - Re faire l'exo 4 avec DO WHILE
+
+// let panierLegumes = ['Lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur']
+// let caisseLegumes = []
+// let longueur = panierLegumes.length
+// let i = longueur - 1
+
+// do {
+//     caisseLegumes.push(panierLegumes[i])
+//     panierLegumes.splice(i, 1)
+//     i--
+// } while (i >= 0)
+
+// console.log(caisseLegumes)
 
 
 // 7. Exo 07
@@ -394,3 +409,28 @@ if (question ===  true) {
 }
 }
 }
+
+
+
+// --> exercice réalisé par Gugu
+// var panier = [];
+// while (panier.length < 5){
+//     var fruit = prompt("Quels fruit voules-vous ajouter?")
+//         panier.push(fruit);
+//     }
+
+// console.log(panier);
+
+// var aRetirer = prompt(Panier rempli avec ${panier}. Souhaitez-vous retirer un fruit?);
+
+// while(panier.indexOf(aRetirer) != -1){
+//     panier.splice(panier.indexOf(aRetirer), 1);
+//     aRetirer = prompt(Panier rempli avec ${panier}. Souhaitez-vous retirer un fruit?);
+// }
+// alert("Bon appetit");
+
+// for (let i=0; i < panier.length; i++){
+//     // panier[i] = panier[i].toLowerCase();
+//     panier[i] = panier[i].charAt(0).toUpperCase() + panier[i].substring(1).toLowerCase();
+// }
+// alert(panier);
