@@ -226,78 +226,121 @@
 
 // ### Faites un console.log() de votre argent, ainsi que l'argent du Bus
 
-class Lieu {
-    constructor(nom, personnes){
-        this.nom=nom;
-        this.personnes=personnes;
-    }
-}
-let lieu1 = new Lieu("Molengeek",[]);
-let lieu2 = new Lieu("Snack",[]);
-let lieu3 = new Lieu("Maison",[]);
+// class Lieu {
+//     constructor(nom, personnes){
+//         this.nom=nom;
+//         this.personnes=personnes;
+//     }
+// }
+// let lieu1 = new Lieu("Molengeek",[]);
+// let lieu2 = new Lieu("Snack",[]);
+// let lieu3 = new Lieu("Maison",[]);
 
-class Personne {
-    constructor(nom,prenom,argent){
+// class Personne {
+//     constructor(nom,prenom,argent){
+//         this.nom=nom;
+//         this.prenom=prenom;
+//         this.argent=argent;
+//     }
+//     se_deplacer = () => {
+//         taxi.embarquer(this); 
+//     }
+//     marcher = () => {
+//         pied.embarquer(this);
+//     }
+// }
+
+// let nico = new Personne("Nico","cheypo",11.2);
+
+// class Bus {
+//     constructor(personnes,caisse){
+//         this.personnes=personnes;
+//         this.caisse=+caisse;
+//     }
+//     embarquer = (personne) => {
+//         if (personne.argent>=2.80) {
+//             personne.argent-=2.80
+//             personne.argent=Number(personne.argent.toFixed(1));
+//             this.caisse+=2.80
+//             this.caisse=Number(this.caisse.toFixed(1));
+//             this.personnes.push(personne);
+//         }else if(personne.argent<2.80) {
+//             console.log("Vous n'avez pas assez d'argent");
+//         }
+//     }
+//     marcher = (personne) => {
+//         this.personnes.push(personne);
+//     }
+// }
+// let taxi = new Bus([],50);
+// let pied = new Bus([]);
+
+// // ### 8h00 Vous êtes à la maison.
+// lieu3.personnes.push(nico);
+// console.log(lieu3);
+// // ### 8h30 Vous prennez le bus vers MolenGeek.
+// lieu3.personnes.splice();
+// nico.se_deplacer(lieu1);
+// console.log(taxi);
+
+// // ### 8h45 Vous êtes à MolenGeek.
+// console.log(lieu1)
+// taxi.personnes.splice();
+// // ### 12h45 Vous sortez de MolenGeek, vous prenez le bus pour aller au snack.
+// nico.se_deplacer(lieu2);
+// console.log(lieu2);
+// taxi.personnes.splice();
+// // ### 13h30 Vous sortez du snack, et vous rentrer pied à MolenGeek pour digérer.
+// nico.marcher(lieu1);
+// lieu2.personnes.splice();
+// console.log(lieu1);
+// // ### 17h10 Vous sortez de MolenGeek, vous prenez le bus pour rentrer chez vous.
+// pied.personnes.splice();
+// nico.se_deplacer(lieu3);
+// console.log(lieu3);
+// taxi.personnes.splice();
+// console.log(nico.argent);
+// console.log(taxi.caisse);
+//////////////////////////////////////////////////////////////////////////////////////////
+// - Vous allez créer une class Personne qui aura besoin d'un nom, prenom, age, argent, panier et d'une methode prendre
+// - Vous allez créer une class Produit dans laquelle il y a un nom, un prix et une taille (XS, S, M, L, XL)
+
+// - Vous allez créer 3 instances de Personne et 5 instance de Produit
+// - Avez la méthode prendre, vous allez mettre les produits dans votre sac
+
+
+class Personne{
+    constructor(nom,prenom,age,argent,panier){
         this.nom=nom;
         this.prenom=prenom;
+        this.age=age;
         this.argent=argent;
+        this.panier=panier;
     }
-    se_deplacer = () => {
-        taxi.embarquer(this); 
-    }
-    marcher = () => {
-        pied.embarquer(this);
-    }
-}
-
-let nico = new Personne("Nico","cheypo",11.2);
-
-class Bus {
-    constructor(personnes,caisse){
-        this.personnes=personnes;
-        this.caisse=+caisse;
-    }
-    embarquer = (personne) => {
-        if (personne.argent>=2.80) {
-            personne.argent-=2.80
-            personne.argent=Number(personne.argent.toFixed(1));
-            this.caisse+=2.80
-            this.caisse=Number(this.caisse.toFixed(1));
-            this.personnes.push(personne);
-        }else if(personne.argent<2.80) {
-            console.log("Vous n'avez pas assez d'argent");
-        }
-    }
-    marcher = (personne) => {
-        this.personnes.push(personne);
+    prendre= (produit) =>{
+        this.panier.push(produit);
+        console.log(`${this.prenom} a pris un(e) ${produit.nom}`)
     }
 }
-let taxi = new Bus([],50);
-let pied = new Bus([]);
+let machin= new Personne("Monsieur","Machin",105,80,[]);
+let brouks= new Personne("Brouks","Jhon",105,80,[]);
+let samy= new Personne("Pulat","Samy",105,80,[]);
 
-// ### 8h00 Vous êtes à la maison.
-lieu3.personnes.push(nico);
-console.log(lieu3);
-// ### 8h30 Vous prennez le bus vers MolenGeek.
-lieu3.personnes.splice();
-nico.se_deplacer(lieu1);
-console.log(taxi);
 
-// ### 8h45 Vous êtes à MolenGeek.
-console.log(lieu1)
-taxi.personnes.splice();
-// ### 12h45 Vous sortez de MolenGeek, vous prenez le bus pour aller au snack.
-nico.se_deplacer(lieu2);
-console.log(lieu2);
-taxi.personnes.splice();
-// ### 13h30 Vous sortez du snack, et vous rentrer pied à MolenGeek pour digérer.
-nico.marcher(lieu1);
-lieu2.personnes.splice();
-console.log(lieu1);
-// ### 17h10 Vous sortez de MolenGeek, vous prenez le bus pour rentrer chez vous.
-pied.personnes.splice();
-nico.se_deplacer(lieu3);
-console.log(lieu3);
-taxi.personnes.splice();
-console.log(nico.argent);
-console.log(taxi.caisse);
+class Produit{
+    constructor(nom,prix,taille){
+        this.nom=nom;
+        this.prix=prix;
+        this.taille=taille;
+    }
+}
+let gucci= new Produit("t-shirt",25,"xl");
+let nike= new Produit("pantalon",50,"xl");
+let prada= new Produit("casquette",20,"s");
+let puma= new Produit("chaussures",60,"m");
+let addadas= new Produit("gants",20,"xxxl");
+
+
+samy.prendre(gucci);
+machin.prendre(prada);
+brouks.prendre(nike);
