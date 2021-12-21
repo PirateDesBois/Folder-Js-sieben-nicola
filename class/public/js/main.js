@@ -309,38 +309,181 @@
 // - Avez la méthode prendre, vous allez mettre les produits dans votre sac
 
 
-class Personne{
-    constructor(nom,prenom,age,argent,panier){
+// class Personne{
+//     constructor(nom,prenom,age,argent,panier){
+//         this.nom=nom;
+//         this.prenom=prenom;
+//         this.age=age;
+//         this.argent=argent;
+//         this.panier=panier;
+//     }
+//     prendre= (produit) =>{
+//         this.panier.push(produit);
+//         console.log(`${this.prenom} a pris un(e) ${produit.nom}`)
+//     }
+// }
+// let machin= new Personne("Monsieur","Machin",105,80,[]);
+// let brouks= new Personne("Brouks","Jhon",105,80,[]);
+// let samy= new Personne("Pulat","Samy",105,80,[]);
+
+
+// class Produit{
+//     constructor(nom,prix,taille){
+//         this.nom=nom;
+//         this.prix=prix;
+//         this.taille=taille;
+//     }
+// }
+// let gucci= new Produit("t-shirt",25,"xl");
+// let nike= new Produit("pantalon",50,"xl");
+// let prada= new Produit("casquette",20,"s");
+// let puma= new Produit("chaussures",60,"m");
+// let addadas= new Produit("gants",20,"xxxl");
+
+
+// samy.prendre(gucci);
+// machin.prendre(prada);
+// brouks.prendre(nike);
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+// # Exercice bonus: Combat Pokemon
+
+// ## mise en place:
+
+// ### Dans ce exo, tu vas devoir mettre en place une Class Pokemon dans laquelle on retrouvera un nom sous forme de String, un niveau allant de 1 à 99 sous forme d'un Integer, des points de vie sous forme d'un Integer, une vitesse aussi sous forme d'un Integer ainsi qu'un tableau de type avec un maximum de 2 types par Pokemon
+class Pokemon{
+    constructor(nom,lvl,pv,vitesse,tabtype){
         this.nom=nom;
-        this.prenom=prenom;
-        this.age=age;
-        this.argent=argent;
-        this.panier=panier;
-    }
-    prendre= (produit) =>{
-        this.panier.push(produit);
-        console.log(`${this.prenom} a pris un(e) ${produit.nom}`)
+        this.lvl=lvl;
+        this.pv=pv;
+        this.vitesse=vitesse;
+        this.tabtype=tabtype;
     }
 }
-let machin= new Personne("Monsieur","Machin",105,80,[]);
-let brouks= new Personne("Brouks","Jhon",105,80,[]);
-let samy= new Personne("Pulat","Samy",105,80,[]);
 
 
-class Produit{
-    constructor(nom,prix,taille){
-        this.nom=nom;
-        this.prix=prix;
-        this.taille=taille;
+
+// #### (Pour voir les différents types de Pokemon, tu peux consulter cette page : https://boutique-pokemon.com/blogs/blog-pokemon/table-types-pokemon )
+
+class SamyCogneur extends Pokemon {
+    coupDePoing(defenseur){
+        defenseur.pv -=60
+    }
+    Musique(defenseur){
+        defenseur.pv -=30
+    }
+    baillement(defenseur){
+        defenseur.pv -=20
+    }
+    charge(defenseur){
+        defenseur.pv-=100
     }
 }
-let gucci= new Produit("t-shirt",25,"xl");
-let nike= new Produit("pantalon",50,"xl");
-let prada= new Produit("casquette",20,"s");
-let puma= new Produit("chaussures",60,"m");
-let addadas= new Produit("gants",20,"xxxl");
+class MomoDoudou extends Pokemon {
+    paroleALaChaine(defenseur){
+        defenseur.pv -=80
+    }
+    sympathie(defenseur){
+        defenseur.pv +=30
+    }
+    desespoir(defenseur){
+        defenseur.pv -=60
+    }
+    charge(target){
+        defenseur.pv-=50
+    }
+}
+
+let samy = new SamyCogneur("samyCogneur",25,200,150,["pierre","eau"]);
+let momo = new MomoDoudou("momoDoudou",30,120,100,["air","terre"]);
+let eliot = new Pokemon("culbutoEliot",27,250,100,["terre","herbe"]);
+let eliassss = new Pokemon("elias",50,300,100,["terre","pierre"]);
+let batou = new Pokemon("batouDoudou",35,200,150,["terre","herbe"]);
 
 
-samy.prendre(gucci);
-machin.prendre(prada);
-brouks.prendre(nike);
+
+
+// ## Combat:
+
+let attaquant=[];
+let attack=prompt(`quel pokeGeek désirez-vous utiliser? parmis samyCogneur, momoDoudou, CulbutoEliot, elias, batouYoutou`);
+
+switch (attack) {
+    case "samyCogneur":
+        attaquant.push(samy);
+        break;
+    case "momoDoudou":
+        attaquant.push(momo);
+
+        break;
+    case "culbutoEliot":
+        attaquant.push(eliot);
+        
+        break;
+    case "elias":
+        attaquant.push(eliassss);
+        
+        break;
+    case "batouYoutou":
+        attaquant.push(batou);
+        
+        break;
+    default:
+        break;
+}
+
+console.log(attaquant[0]);
+
+let defenseur=[];
+let def=Math.round(Math.random()*4);
+switch (def) {
+    case 1:
+        defenseur.push(samy);
+        alert("Votre attaquant sera samyCogneur");
+        break;
+    case "momoDoudou":
+        defenseur.push(momo);
+        alert("Votre attaquant sera momoDdoudou");
+        break;
+    case 2:
+        defenseur.push(eliot);
+        alert("Votre attaquant sera culbutoEliot");
+        break;
+    case 3:
+        defenseur.push(eliassss);
+        alert("Votre attaquant sera elias");
+        break;
+    case 4:
+        defenseur.push(batou);
+        alert("Votre attaquant sera batouYoutou");
+        break;
+    default:
+        break;
+}
+alert(`${attaquant[0].nom} attaquera ${defenseur[0].nom} lors de ce match`)
+const combat = (attaquant,defenseur) => {
+   while (attaquant[0].pv > 0) {
+       prompt(`Choisissez une attaque parmis;
+       ${}`)
+   }
+}
+
+
+// ### Tu devras ensuite extends cette Class afin de créer une Class par Pokemon. Cette Class devra contenir des méthodes pour permettre au Pokemon d'effectuer différentes actions ex: une Class Pikachu avec les méthodes fatal_foudre, queue_de_fer, charge et quick_attack
+
+
+
+// ### Pour cette partie , tu vas devoir mettre en place une fonction qui va gérer le combat. Cette fonction prendra en charge deux paramètres: Le Pokemon que tu contrôleras et le Pokemon ennemi. Il faudra à l'aide de prompt demander à l'utilisateur quelle action il voudra exécuter. Ensuite, il faudra laisser l'ennemi exécuter une action et ce ainsi de suite jusqu'à ce que l'un des deux Pokemons tombe KO. N'oublie pas qu'une propriété de vitesse a été mise en place, cela determinera quel Pokemon attaquera en premier.
+
+// ## BONUS : 
+
+// ### Si tu es assez chaud, grâce au tableau de faiblesses que je t'ai fourni ci-dessus tu peux gérer les faiblesses. Ainsi un Pokemon eau subissant une attaque de type éléctrique se verra ramasser le double de dégats,etc ...
+
+// ## BONUS II: 
+
+// ### Si tu es encore plus chaud, tu peux rajouter une propriété défense dans la Class Pokemon afin d'avoir un vrai calcul de dégats ...
+
+// ## N'oublie pas tes IMPORTS/EXPORTS
+
+// ## COURAGE ET SI TU AS DES QUESTIONS J'Y REPONDRAIS (PAS)
