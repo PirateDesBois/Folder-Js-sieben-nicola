@@ -313,56 +313,15 @@
 
 // - Vous allez ajouter une propriété dans le produits appelé acheté qui sera false
 // - Dans la classe personne, vous allez créer une méthode acheter qui va faire passer tous les éléments de votre sac en acheté true et vous allez retirer l'argent de que vous avez par rapport au prix du produit
-let chance
-let prison=[];
-class Personne{
-    constructor(nom,prenom,age,argent,panier){
-        this.nom=nom;
-        this.prenom=prenom;
-        this.age=age;
-        this.argent=argent;
-        this.panier=panier;
-    }
-    voler= (produit) =>{
-            chance = Math.floor(Math.random()*11);
-            console.log(chance);
-            if (chance  > 7) {
-                this.argent=0
-                console.log( `${this.prenom} c'est fait attraper et n'as plus d'argent! ${this.prenom} est un saaaaaaale voleur!`)
-                prison.push(this.prenom);
-                console.log(prison);
-                console.log(`${this.prenom} va en prison et à de fortes chances de glisser sur la savonnette!`)
-            }else{
-                this.panier.push(produit);
-                console.log(`${this.prenom} a volé un(e) ${produit.nom}`)
-            }
 
-        
-    }
-    acheter= (produit) =>{
-        if (this.argent>produit.prix) {
-            this.panier.push(produit);
-            produit.achete=true;
-            this.argent-=produit.prix
-            console.log(`${this.prenom} vient d'acheter ${produit.nom}`);
-        }else{
-            console.log(`${this.prenom} n a plus d'argent, il va devoir prendre plutôt qu'acheter!`)
-        }  
-    }
-}
+import {Personne,Produit} from "./_class.js";
+
+
 let machin= new Personne("Monsieur","Machin",105,80,[]);
 let brouks= new Personne("Brouks","Jhon",25,80,[]);
 let samy= new Personne("Pulat","Samy",26,80,[]);
 let personneList=[machin,brouks,samy];
 
-class Produit{
-    constructor(nom,prix,taille,){
-        this.nom=nom;
-        this.prix=prix;
-        this.taille=taille;
-        this.achete=false;
-    }
-}
 
 let gucci= new Produit("t-shirt",25,"xl");
 let nike= new Produit("pantalon",50,"xl");
