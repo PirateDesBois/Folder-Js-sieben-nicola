@@ -309,41 +309,77 @@
 // - Avez la méthode prendre, vous allez mettre les produits dans votre sac
 
 
-// class Personne{
-//     constructor(nom,prenom,age,argent,panier){
-//         this.nom=nom;
-//         this.prenom=prenom;
-//         this.age=age;
-//         this.argent=argent;
-//         this.panier=panier;
-//     }
-//     prendre= (produit) =>{
-//         this.panier.push(produit);
-//         console.log(`${this.prenom} a pris un(e) ${produit.nom}`)
-//     }
-// }
-// let machin= new Personne("Monsieur","Machin",105,80,[]);
-// let brouks= new Personne("Brouks","Jhon",105,80,[]);
-// let samy= new Personne("Pulat","Samy",105,80,[]);
+//suite 
 
+// - Vous allez ajouter une propriété dans le produits appelé acheté qui sera false
+// - Dans la classe personne, vous allez créer une méthode acheter qui va faire passer tous les éléments de votre sac en acheté true et vous allez retirer l'argent de que vous avez par rapport au prix du produit
+let chance
+let prison=[];
+class Personne{
+    constructor(nom,prenom,age,argent,panier){
+        this.nom=nom;
+        this.prenom=prenom;
+        this.age=age;
+        this.argent=argent;
+        this.panier=panier;
+    }
+    voler= (produit) =>{
+            chance = Math.floor(Math.random()*11);
+            console.log(chance);
+            if (chance  > 7) {
+                this.argent=0
+                console.log( `${this.prenom} c'est fait attraper et n'as plus d'argent! ${this.prenom} est un saaaaaaale voleur!`)
+                prison.push(this.prenom);
+                console.log(prison);
+                console.log(`${this.prenom} va en prison et à de fortes chances de glisser sur la savonnette!`)
+            }else{
+                this.panier.push(produit);
+                console.log(`${this.prenom} a volé un(e) ${produit.nom}`)
+            }
 
-// class Produit{
-//     constructor(nom,prix,taille){
-//         this.nom=nom;
-//         this.prix=prix;
-//         this.taille=taille;
-//     }
-// }
-// let gucci= new Produit("t-shirt",25,"xl");
-// let nike= new Produit("pantalon",50,"xl");
-// let prada= new Produit("casquette",20,"s");
-// let puma= new Produit("chaussures",60,"m");
-// let addadas= new Produit("gants",20,"xxxl");
+        
+    }
+    acheter= (produit) =>{
+        if (this.argent>produit.prix) {
+            this.panier.push(produit);
+            produit.achete=true;
+            this.argent-=produit.prix
+            console.log(`${this.prenom} vient d'acheter ${produit.nom}`);
+        }else{
+            console.log(`${this.prenom} n a plus d'argent, il va devoir prendre plutôt qu'acheter!`)
+        }  
+    }
+}
+let machin= new Personne("Monsieur","Machin",105,80,[]);
+let brouks= new Personne("Brouks","Jhon",25,80,[]);
+let samy= new Personne("Pulat","Samy",26,80,[]);
+let personneList=[machin,brouks,samy];
 
+class Produit{
+    constructor(nom,prix,taille,){
+        this.nom=nom;
+        this.prix=prix;
+        this.taille=taille;
+        this.achete=false;
+    }
+}
 
-// samy.prendre(gucci);
-// machin.prendre(prada);
-// brouks.prendre(nike);
+let gucci= new Produit("t-shirt",25,"xl");
+let nike= new Produit("pantalon",50,"xl");
+let prada= new Produit("casquette",20,"s");
+let puma= new Produit("chaussures",60,"m");
+let addadas= new Produit("gants",20,"xxxl");
+let products =[gucci,nike,prada,puma,addadas];
+
+let randomProduct=products[Math.floor(Math.random()*5)];
+let generate=Math.floor(Math.random()*11);
+let randomPersonne=personneList[Math.floor(Math.random()*3)];
+
+if (generate < 5) {
+    randomPersonne.voler(randomProduct);
+}else if (generate >= 5) {
+    randomPersonne.acheter(randomProduct);
+}
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -352,123 +388,123 @@
 // ## mise en place:
 
 // ### Dans ce exo, tu vas devoir mettre en place une Class Pokemon dans laquelle on retrouvera un nom sous forme de String, un niveau allant de 1 à 99 sous forme d'un Integer, des points de vie sous forme d'un Integer, une vitesse aussi sous forme d'un Integer ainsi qu'un tableau de type avec un maximum de 2 types par Pokemon
-class Pokemon{
-    constructor(nom,lvl,pv,vitesse,tabtype){
-        this.nom=nom;
-        this.lvl=lvl;
-        this.pv=pv;
-        this.vitesse=vitesse;
-        this.tabtype=tabtype;
-    }
-}
+// class Pokemon{
+//     constructor(nom,lvl,pv,vitesse,tabtype){
+//         this.nom=nom;
+//         this.lvl=lvl;
+//         this.pv=pv;
+//         this.vitesse=vitesse;
+//         this.tabtype=tabtype;
+//     }
+// }
 
 
 
 // #### (Pour voir les différents types de Pokemon, tu peux consulter cette page : https://boutique-pokemon.com/blogs/blog-pokemon/table-types-pokemon )
 
-class SamyCogneur extends Pokemon {
-    coupDePoing(defenseur){
-        defenseur.pv -=60
-    }
-    Musique(defenseur){
-        defenseur.pv -=30
-    }
-    baillement(defenseur){
-        defenseur.pv -=20
-    }
-    charge(defenseur){
-        defenseur.pv-=100
-    }
-}
-class MomoDoudou extends Pokemon {
-    paroleALaChaine(defenseur){
-        defenseur.pv -=80
-    }
-    sympathie(defenseur){
-        defenseur.pv +=30
-    }
-    desespoir(defenseur){
-        defenseur.pv -=60
-    }
-    charge(target){
-        defenseur.pv-=50
-    }
-}
+// class SamyCogneur extends Pokemon {
+//     coupDePoing(defenseur){
+//         defenseur.pv -=60
+//     }
+//     Musique(defenseur){
+//         defenseur.pv -=30
+//     }
+//     baillement(defenseur){
+//         defenseur.pv -=20
+//     }
+//     charge(defenseur){
+//         defenseur.pv-=100
+//     }
+// }
+// class MomoDoudou extends Pokemon {
+//     paroleALaChaine(defenseur){
+//         defenseur.pv -=80
+//     }
+//     sympathie(defenseur){
+//         defenseur.pv +=30
+//     }
+//     desespoir(defenseur){
+//         defenseur.pv -=60
+//     }
+//     charge(target){
+//         defenseur.pv-=50
+//     }
+// }
 
-let samy = new SamyCogneur("samyCogneur",25,200,150,["pierre","eau"]);
-let momo = new MomoDoudou("momoDoudou",30,120,100,["air","terre"]);
-let eliot = new Pokemon("culbutoEliot",27,250,100,["terre","herbe"]);
-let eliassss = new Pokemon("elias",50,300,100,["terre","pierre"]);
-let batou = new Pokemon("batouDoudou",35,200,150,["terre","herbe"]);
-
-
+// let samy = new SamyCogneur("samyCogneur",25,200,150,["pierre","eau"]);
+// let momo = new MomoDoudou("momoDoudou",30,120,100,["air","terre"]);
+// let eliot = new Pokemon("culbutoEliot",27,250,100,["terre","herbe"]);
+// let eliassss = new Pokemon("elias",50,300,100,["terre","pierre"]);
+// let batou = new Pokemon("batouDoudou",35,200,150,["terre","herbe"]);
 
 
-// ## Combat:
 
-let attaquant=[];
-let attack=prompt(`quel pokeGeek désirez-vous utiliser? parmis samyCogneur, momoDoudou, CulbutoEliot, elias, batouYoutou`);
 
-switch (attack) {
-    case "samyCogneur":
-        attaquant.push(samy);
-        break;
-    case "momoDoudou":
-        attaquant.push(momo);
+// // ## Combat:
 
-        break;
-    case "culbutoEliot":
-        attaquant.push(eliot);
+// let attaquant=[];
+// let attack=prompt(`quel pokeGeek désirez-vous utiliser? parmis samyCogneur, momoDoudou, CulbutoEliot, elias, batouYoutou`);
+
+// switch (attack) {
+//     case "samyCogneur":
+//         attaquant.push(samy);
+//         break;
+//     case "momoDoudou":
+//         attaquant.push(momo);
+
+//         break;
+//     case "culbutoEliot":
+//         attaquant.push(eliot);
         
-        break;
-    case "elias":
-        attaquant.push(eliassss);
+//         break;
+//     case "elias":
+//         attaquant.push(eliassss);
         
-        break;
-    case "batouYoutou":
-        attaquant.push(batou);
+//         break;
+//     case "batouYoutou":
+//         attaquant.push(batou);
         
-        break;
-    default:
-        break;
-}
+//         break;
+//     default:
+//         break;
+// }
 
-console.log(attaquant[0]);
+// console.log(attaquant[0]);
 
-let defenseur=[];
-let def=Math.round(Math.random()*4);
-switch (def) {
-    case 1:
-        defenseur.push(samy);
-        alert("Votre attaquant sera samyCogneur");
-        break;
-    case "momoDoudou":
-        defenseur.push(momo);
-        alert("Votre attaquant sera momoDdoudou");
-        break;
-    case 2:
-        defenseur.push(eliot);
-        alert("Votre attaquant sera culbutoEliot");
-        break;
-    case 3:
-        defenseur.push(eliassss);
-        alert("Votre attaquant sera elias");
-        break;
-    case 4:
-        defenseur.push(batou);
-        alert("Votre attaquant sera batouYoutou");
-        break;
-    default:
-        break;
-}
-alert(`${attaquant[0].nom} attaquera ${defenseur[0].nom} lors de ce match`)
-const combat = (attaquant,defenseur) => {
-   while (attaquant[0].pv > 0) {
-       prompt(`Choisissez une attaque parmis;
-       ${}`)
-   }
-}
-
+// let defenseur=[];
+// let def=Math.round(Math.random()*4);
+// switch (def) {
+//     case 1:
+//         defenseur.push(samy);
+//         alert("Votre attaquant sera samyCogneur");
+//         break;
+//     case "momoDoudou":
+//         defenseur.push(momo);
+//         alert("Votre attaquant sera momoDdoudou");
+//         break;
+//     case 2:
+//         defenseur.push(eliot);
+//         alert("Votre attaquant sera culbutoEliot");
+//         break;
+//     case 3:
+//         defenseur.push(eliassss);
+//         alert("Votre attaquant sera elias");
+//         break;
+//     case 4:
+//         defenseur.push(batou);
+//         alert("Votre attaquant sera batouYoutou");
+//         break;
+//     default:
+//         break;
+// }
+// alert(`${attaquant[0].nom} attaquera ${defenseur[0].nom} lors de ce match`)
+// const combat = (attaquant,defenseur) => {
+//    while (attaquant[0].pv > 0) {
+//        prompt(`Choisissez une attaque parmis;
+//        ${}`)
+//    }
+// }
+// try
 
 // ### Tu devras ensuite extends cette Class afin de créer une Class par Pokemon. Cette Class devra contenir des méthodes pour permettre au Pokemon d'effectuer différentes actions ex: une Class Pikachu avec les méthodes fatal_foudre, queue_de_fer, charge et quick_attack
 
