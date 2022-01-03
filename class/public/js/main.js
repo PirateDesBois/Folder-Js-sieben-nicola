@@ -330,13 +330,13 @@ let puma= new Produit("chaussures",60,"m");
 let addadas= new Produit("gants",20,"xxxl");
 let products =[gucci,nike,prada,puma,addadas];
 
-let randomProduct=products[Math.floor(Math.random()*5)];
+let randomProduct=products[Math.loor(Math.random()*5)];
 let generate=Math.floor(Math.random()*11);
 let randomPersonne=personneList[Math.floor(Math.random()*3)];
 
 if (generate < 5) {
     randomPersonne.voler(randomProduct);
-}else if (generate >= 5) {
+}else if (generate >= 5){
     randomPersonne.acheter(randomProduct);
 }
 

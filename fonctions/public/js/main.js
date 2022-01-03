@@ -38,8 +38,6 @@
 //     return div;
 //     }
 //     console.log(div(10,3));
-
-
 // EXO6
 // Créez une fonction qui prend un paramètre, et retourne le carré de ce nombre, et faites un console.log du résultat.(Racine carrée)
 // const racine = (nbr1) => {

@@ -10,7 +10,18 @@
 // *console.log("Casar perd 30 de vie");*
 // ## Instructions du jeu :
 // #### Il te faut créer :
+import {Boss,Heros,Guerrier,Archer,Mage} from "./_class.js"
+import {randomBoss} from "./_fonction.js"
+//Les Boss:
+let boss1 = new Boss("Sauron",300,100);
+let boss2 = new Boss("Chronos",250,150);
+let boss3 = new Boss("Lilith",200,200);
+//Les Heros:
+let guerrier = new Guerrier("Guerrier",250,150);
+let mage = new Mage("Mage", 150,350);
+let archer = new Archer("Archer",250,300);
 
+combat(Heros,randomBoss);
 // ### - Trois boss(Sauron,Chronos,Lilith).
 //  Chaque boss possédera les propriétés suivantes :
 // >* Un nom;
