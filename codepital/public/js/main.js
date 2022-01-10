@@ -101,14 +101,32 @@ patient4.pay(consultation,doc);
 doc.diagnostiquer(patient4,consultation);
 doc.patientOut(patient4);
 patient4.goTo(doc.salleDattente,pharmacie);
-patient4.pay(traitement3,pharmacie);
-patient4.takeCare(traitement3);
+patient4.pay(traitement4,pharmacie);
+patient4.takeCare(traitement4);
 console.log(pharmacie);
 
 setTimeout(() => {
     window.clearInterval(miaou);
 },5000)
 },23000)
+
+setTimeout(() => {
+    miaou = setInterval(() => {
+        console.log("le chat fait arrrrrrrg parce que le patient vient de l'étrangler")
+    }, 1000);
+doc.patienTIn(patient5);
+patient5.pay(consultation,doc);
+doc.diagnostiquer(patient5,consultation);
+doc.patientOut(patient5);
+patient5.goTo(doc.salleDattente,pharmacie);
+patient5.pay(traitement5,pharmacie);
+patient5.takeCare(traitement5);
+console.log(pharmacie);
+
+setTimeout(() => {
+    window.clearInterval(miaou);
+},5000)
+},29000)
 
 
 

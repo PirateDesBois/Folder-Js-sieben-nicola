@@ -1,0 +1,14 @@
+let title = document.getElementsByTagName('h1');
+console.log(title);
+let ach = document.getElementsByTagName('h3');
+console.log(ach);
+let sous1 = document.getElementsByTagName('h3')[0];
+console.log(sous1);
+let sous2 = document.getElementsByTagName('h3')[1];
+console.log(sous2);
+let sous3 = document.getElementsByTagName('h3')[2];
+console.log(sous3);
+let para2 = document.getElementsByTagName('p')[1];
+console.log(para2);
+let list = document.getElementsByTagName('li')[2];
+console.log(list);
