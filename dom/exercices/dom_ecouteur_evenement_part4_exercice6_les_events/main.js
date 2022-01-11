@@ -10,7 +10,7 @@ let grasRouge = (e) => {
 exo1.addEventListener("click",border);
 exo1_1.addEventListener("click",grasRouge);
 
-let para = document.querySelector('section>p');
+let para = document.querySelector('section>p')[0];
 let text = (e) =>{
     e.target.innerText= "Il est possible de passer des parametres dans la function utilisé dans l'écouteur d'événement et nous verrons ça dans le prochain exercice !"
 }
